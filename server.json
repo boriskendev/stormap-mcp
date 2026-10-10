@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.boriskendev/stormap",
+  "title": "Stormap",
+  "description": "Vendor security profiles, pricing/terms change history, AI shopping audits, company research.",
+  "version": "1.2.0",
+  "websiteUrl": "https://stormap.ai/developers",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://stormap.ai/mcp"
+    }
+  ]
+}
