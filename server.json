@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.boriskendev/stormap",
   "title": "Stormap",
-  "description": "x402 market prices, check-before-paying, email/domain checks, vendor security, company research.",
-  "version": "1.4.0",
+  "description": "Why a stock is moving, trading halts, x402 market prices, check-before-paying, vendor security.",
+  "version": "1.5.0",
   "websiteUrl": "https://stormap.ai/developers",
   "remotes": [
     {
