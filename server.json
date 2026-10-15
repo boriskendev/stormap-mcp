@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.boriskendev/stormap",
   "title": "Stormap",
-  "description": "Package safety checks, why a stock is moving, trading halts, check-before-paying, x402 market data.",
-  "version": "1.6.0",
+  "description": "Find the best paid API for a task, package safety checks, stock catalysts, x402 market data.",
+  "version": "1.7.0",
   "websiteUrl": "https://stormap.ai/developers",
   "remotes": [
     {
