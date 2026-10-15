@@ -38,6 +38,21 @@ claude mcp add --transport http stormap https://stormap.ai/mcp
 
 Works without a key (free daily limit). Add `"headers": { "Authorization": "Bearer smk_..." }` with a free key from https://stormap.ai/developers for higher limits.
 
+## Run as a local stdio server
+
+The tools run on stormap.ai. For clients that only support local (stdio) servers, bridge to the hosted endpoint:
+
+```bash
+npx -y mcp-remote@0.14.3 https://stormap.ai/mcp --transport http-only
+```
+
+Or with Docker:
+
+```bash
+docker build -t stormap-mcp .
+docker run -i --rm stormap-mcp
+```
+
 ## Tools
 
 | Tool | What it does | Pay-per-call (x402) |
