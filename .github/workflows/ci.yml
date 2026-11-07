@@ -30,6 +30,13 @@ jobs:
           print('server.json OK, version', s['version'])
           EOF
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Unit test (stdio server against a local stand-in)
+        run: npm test
+
       - name: Build the Docker image
         run: docker build -t stormap-mcp .
 
@@ -45,3 +52,14 @@ jobs:
             grep -q "\"$t\"" tools.txt || { echo "missing tool $t"; exit 1; }
           done
           echo "tools/list OK"
+
+      - name: The stdio server lists the live tools
+        run: |
+          printf '%s\n' \
+            '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"stormap-mcp-ci","version":"1.0"}}}' \
+            '{"jsonrpc":"2.0","method":"notifications/initialized"}' \
+            '{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}' \
+            | docker run -i --rm stormap-mcp > stdio.txt
+          grep -q '"serverInfo"' stdio.txt
+          grep -q '"package_check"' stdio.txt
+          echo "stdio server OK"

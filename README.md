@@ -40,10 +40,21 @@ Works without a key (free daily limit). Add `"headers": { "Authorization": "Bear
 
 ## Run as a local stdio server
 
-The tools run on stormap.ai. For clients that only support local (stdio) servers, bridge to the hosted endpoint:
+For clients that only support local (stdio) servers, this repository contains a small stdio MCP server (`src/index.js`, Node 18+, no dependencies). It speaks MCP over stdin/stdout and answers each request by calling the hosted server at https://stormap.ai/mcp, where the tools run, so the tool list is always current.
 
 ```bash
-npx -y mcp-remote@0.14.3 https://stormap.ai/mcp --transport http-only
+git clone https://github.com/boriskendev/stormap-mcp && cd stormap-mcp
+node src/index.js
+```
+
+Client config:
+
+```json
+{
+  "mcpServers": {
+    "stormap": { "command": "node", "args": ["/path/to/stormap-mcp/src/index.js"], "env": { "STORMAP_API_KEY": "" } }
+  }
+}
 ```
 
 Or with Docker:
